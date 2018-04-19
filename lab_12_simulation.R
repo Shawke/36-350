@@ -20,8 +20,13 @@ model_select = function(covariates, responses, cutoff){
 run_simulations = function(n_trials, n, p, cutoff){
   for(i in 1:n_trials){
     data = generate_data(n, p)
-    hist(model_select(data$covariates, data$responses, cutoff))
+    #hist(model_select(data$covariates, data$responses, cutoff))
   }
+}
+
+make_plot(datapath){
+  data = readLines(datapath)
+  hist(data)
 }
 
 for(num in c(100, 1000, 10000)){
