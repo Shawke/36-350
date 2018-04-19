@@ -11,5 +11,6 @@ generate_data = function(n, p){
   }
 
 model_select = function(covariates, responses, cutoff){
-  mod = lm(responses ~ covariates, responses <= cutoff)
+  lm(responses ~ covariates, responses <= cutoff)
+  lm(responses ~ covariates[, responses <= cutoff])
 }
