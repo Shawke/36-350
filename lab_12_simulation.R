@@ -11,6 +11,7 @@ generate_data = function(n, p){
   }
 
 model_select = function(covariates, responses, cutoff){
-  lm(responses ~ covariates, responses <= cutoff)
-  lm(responses ~ covariates[, responses <= cutoff])
+  m1 = lm(responses ~ covariates, summary(lm(responses~covariates))[[4]][2,4] <= cutoff)
+  m2 = lm(responses ~ covariates[, summary(lm(responses~covariates))[[4]][2,4] <= cutoff])
+  return(summary(m2)[[4]][2,4])
 }
