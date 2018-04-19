@@ -9,3 +9,7 @@ generate_data = function(n, p){
   L$responses = responses
   return(L)
   }
+
+model_select = function(covariates, responses, cutoff){
+  mod = lm(responses ~ covariates, responses <= cutoff)
+}
